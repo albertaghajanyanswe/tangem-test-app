@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Box, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/system';
 import { stylesWithTheme } from './styles';
@@ -39,4 +39,4 @@ function Banner({
   );
 }
 
-export default Banner;
+export default memo(Banner);

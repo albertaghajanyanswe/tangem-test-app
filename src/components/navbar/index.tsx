@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -70,10 +70,10 @@ export default function CustomAppBar(props: Props) {
   const [bannerState, setBannerState] = useState(bannerStatus);
   const isBannerClosed = bannerState === 'closed';
 
-  const handleCloseBanner = () => {
+  const handleCloseBanner = useCallback(() => {
     window.localStorage.setItem('bannerStatus', 'closed');
     setBannerState('closed');
-  }
+  },[])
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
